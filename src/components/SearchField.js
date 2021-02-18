@@ -13,7 +13,8 @@ class SearchField extends React.Component {
 
   onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.inputText);
+    // console.log(this.state.inputText);
+    this.props.onSubmit(this.state.inputText);
   };
 
   render() {
@@ -22,6 +23,7 @@ class SearchField extends React.Component {
         <form onSubmit={this.onFormSubmit}>
           <input
             type="text"
+            value={this.state.inputText}
             placeholder="Search Videos..."
             onChange={this.onInputChange}
           />

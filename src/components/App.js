@@ -2,10 +2,13 @@ import React from "react";
 import SearchField from "./SearchField";
 
 class App extends React.Component {
+  onFormSubmit = (inputText) => {
+    console.log(inputText);
+  };
   render() {
     return (
       <div className="app">
-        <SearchField />
+        <SearchField onSubmit={this.onFormSubmit} />
       </div>
     );
   }
