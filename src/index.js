@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 
-const App = () => {
-    return <div className="App">
-        Index
-    </div>
-}
 
 ReactDOM.render(
     <App />,
