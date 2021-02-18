@@ -1,19 +1,14 @@
 import React from "react";
 
 class SearchField extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { inputText: "" };
-  }
+  state = { inputText: "" };
 
   onInputChange = (e) => {
     this.setState({ inputText: e.target.value });
-    // console.log(this.state.inputText);
   };
 
   onFormSubmit = (e) => {
     e.preventDefault();
-    // console.log(this.state.inputText);
     this.props.onSubmit(this.state.inputText);
   };
 
@@ -23,6 +18,7 @@ class SearchField extends React.Component {
         <form onSubmit={this.onFormSubmit}>
           <input
             type="text"
+            ref={this.inputRef}
             value={this.state.inputText}
             placeholder="Search Videos..."
             onChange={this.onInputChange}
