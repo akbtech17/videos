@@ -9,7 +9,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="app ui container">
         <SearchField onSubmit={this.onFormSubmit} />
       </div>
     );
