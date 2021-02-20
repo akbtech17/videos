@@ -4,13 +4,14 @@ import SearchField from "./SearchField";
 import youtube from "../api/youtube";
 
 class App extends React.Component {
-  onFormSubmit = (inputText) => {
+  onFormSubmit = async (inputText) => {
     // console.log(inputText);
-    youtube.get("/search", {
+    const response = await youtube.get("/search", {
       params: {
         q: inputText,
       },
     });
+    console.log(response);
   };
 
   render() {
