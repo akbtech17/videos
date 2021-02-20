@@ -1,8 +1,8 @@
-import axios from "axios";
 import React from "react";
 import SearchField from "./SearchField";
 import youtube from "../api/youtube";
-import VideoList from "../components/VideoList";
+import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
 
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
@@ -19,14 +19,15 @@ class App extends React.Component {
   };
 
   onVideoSelect = (video) => {
-    // console.log("From the App!!", video);
     this.setState({ selectedVideo: video });
+    // console.log(this.state.selectedVideo);
   };
 
   render() {
     return (
       <div className="app ui container">
         <SearchField onSubmit={this.onFormSubmit} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}
           onVideoSelect={this.onVideoSelect}
