@@ -7,6 +7,10 @@ import VideoDetail from "./VideoDetail";
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
+  componentDidMount() {
+    this.onFormSubmit("acoustic");
+  }
+
   onFormSubmit = async (inputText) => {
     // console.log(inputText);
     const response = await youtube.get("/search", {
