@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import SearchField from "./SearchField";
 import youtube from "../api/youtube";
+import VideoList from '../components/VideoList';
 
 class App extends React.Component {
   state = { videos: [] };
@@ -20,8 +21,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="app ui container">
-        <SearchField onSubmit={this.onFormSubmit} />I have{" "}
-        {this.state.videos.length} videos
+        <SearchField onSubmit={this.onFormSubmit} />
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
