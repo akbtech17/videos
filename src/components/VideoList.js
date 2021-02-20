@@ -6,8 +6,7 @@ const VideoList = ({ videos }) => {
     return (
       <VideoItem
         key={video.id.videoId}
-        title={video.snippet.title}
-        description={video.snippet.description}
+        video={video}
       />
     );
   });
