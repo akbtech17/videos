@@ -2,10 +2,10 @@ import axios from "axios";
 import React from "react";
 import SearchField from "./SearchField";
 import youtube from "../api/youtube";
-import VideoList from '../components/VideoList';
+import VideoList from "../components/VideoList";
 
 class App extends React.Component {
-  state = { videos: [] };
+  state = { videos: [], selectedVideo: null };
 
   onFormSubmit = async (inputText) => {
     // console.log(inputText);
@@ -18,11 +18,18 @@ class App extends React.Component {
     this.setState({ videos: response.data.items });
   };
 
+  onVideoSelect = (video) => {
+    console.log("From the App!!", video);
+  };
+
   render() {
     return (
       <div className="app ui container">
         <SearchField onSubmit={this.onFormSubmit} />
-        <VideoList videos={this.state.videos} />
+        <VideoList
+          videos={this.state.videos}
+          onVideoSelect={this.onVideoSelect}
+        />
       </div>
     );
   }
